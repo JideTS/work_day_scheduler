@@ -18,7 +18,10 @@ Please refer to the LICENSE in the repo.
 
 ## Link to the deployed application
 
-[Try it now]()
+[Try it now](https://jidets.github.io/work_day_scheduler/)
 
 ## Preview of the deployed application
+
+<img width="1725" alt="A preview of a work day scheduler application" src="https://github.com/JideTS/work_day_scheduler/assets/20988563/967a2c05-462d-4f2a-999e-adcc6b820d82">
+
 
