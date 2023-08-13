@@ -107,4 +107,8 @@ $(document).ready(function () {
 
   loadTextFields();
 
+  // Refresh the UI according to time every minute
+
+  window.setInterval(refreshBackgroundColors, 60000);
+
 });
