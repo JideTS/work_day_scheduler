@@ -10,6 +10,10 @@ $(document).ready(function () {
 
   $('#currentDay').text(today.format('MMM D, YYYY'));
 
+  // Get a reference to today in a variable to update the interface if the day changes 
+
+  var referenceToday = dayjs();
+
   // Get reference to save buttons
 
   var saveButtonElements = $('.btn');
@@ -75,7 +79,13 @@ $(document).ready(function () {
       $('#currentDay').text(today.format('MMM D, YYYY'));
 
       // Update the text fields if the day changes
-      loadTextFields();
+
+      if (referenceToday != today) {
+
+        loadTextFields();
+        referenceToday = dayjs();
+
+      }
 
     }
 
@@ -94,6 +104,7 @@ $(document).ready(function () {
       // Validate data is still up to date otherwise discard displaying
 
       if (storedData != null) {
+
         if (storedData.referenceDate == today.format('MMM D, YYYY')) {
           textDescription.val(storedData.description);
         }
