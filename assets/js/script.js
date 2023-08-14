@@ -44,7 +44,7 @@ $(document).ready(function () {
 
   // Adjust the UI according to time
 
-  function refreshBackgroundColors() {
+  function refreshUI() {
 
     var updatedToday = dayjs().format('HH');
 
@@ -70,11 +70,18 @@ $(document).ready(function () {
 
       }
 
+      // Update the displayed date if the day changes
+      today = dayjs();
+      $('#currentDay').text(today.format('MMM D, YYYY'));
+
+      // Update the text fields if the day changes
+      loadTextFields();
+
     }
 
   }
 
-  // Reload saved data if still relevant => today needs to be the same as the day data was typed to avoid displaying outdated information
+  // Reload saved data if still relevant => today needs to be the same as the day data was saved to avoid displaying outdated information
 
   function loadTextFields() {
 
@@ -101,14 +108,12 @@ $(document).ready(function () {
 
   saveButtonElements.on('click', this, handleSaveButtonClicked);
 
-  // Trigger rendering functions when document is ready
+  // Trigger rendering function when document is ready
 
-  refreshBackgroundColors();
-
-  loadTextFields();
+  refreshUI();
 
   // Refresh the UI according to time every minute
 
-  window.setInterval(refreshBackgroundColors, 60000);
+  window.setInterval(refreshUI, 60000);
 
 });
